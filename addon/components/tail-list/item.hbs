@@ -1,0 +1,8 @@
+<li class="border-t border-gray-200 block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out" ...attributes>
+  <div class="px-4 py-4 sm:px-6">
+    {{yield (hash
+      Top=(component "tail-list/item/top")
+      Bottom=(component "tail-list/item/bottom")
+    )}}
+  </div>
+</li>

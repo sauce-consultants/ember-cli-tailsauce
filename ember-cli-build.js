@@ -1,10 +1,37 @@
 'use strict';
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+const autoprefixer = require('autoprefixer');
 
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
-    // Add options here
+
+    // Workaround for https://github.com/ember-cli/ember-cli/issues/8075
+    'ember-cli-uglify': {
+      uglify: {
+        compress: {
+          collapse_vars: false
+        }
+      }
+    },
+    // Tailwind CSS Biz
+    postcssOptions: {
+      compile: {
+        enabled: false
+      },
+      filter: {
+        enabled: true,
+        plugins: [
+          require("tailwindcss")("app/styles/tailwind.js"),
+          {
+            module: autoprefixer,
+            options: {
+              browsers: ['last 2 versions'] // this will override the config, but just for this plugin
+            }
+          }
+        ]
+      }
+    }
   });
 
   /*
