@@ -6,6 +6,15 @@ const autoprefixer = require('autoprefixer');
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
 
+    sassOptions: {
+      outputPaths: {
+        app: {
+          css: {
+            'app': '/assets/tailsauce.css',
+          }
+        }
+      }
+    },
     // Workaround for https://github.com/ember-cli/ember-cli/issues/8075
     'ember-cli-uglify': {
       uglify: {

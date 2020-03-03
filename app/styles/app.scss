@@ -1,0 +1,14 @@
+@import "https://rsms.me/inter/inter.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tail-list {
+  &__bottom-meta {
+    @apply mr-6 flex items-center text-sm leading-5 text-gray-500;
+
+    &:last-child {
+      @apply mr-0;
+    }
+  }
+}
